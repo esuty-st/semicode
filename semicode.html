@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>semicode</title>
+        <script type="text/javascript">
+        function convert(){
+            var str =   document.form1.textarea1.value; 
+            var ret = "";
+            var array = (new TextEncoder('utf-8')).encode(str);
+
+            for(var i = 0;i < array.length;i++){
+                var bin_str = parseInt(array[i]).toString(2);
+                var bin_arr = bin_str.split('');
+                for(var j = 0;j < bin_arr.length;j++){
+                    if(bin_arr[j] == '0')
+                        ret += "ミーン";
+                    else
+                        ret += "ミン";
+                }
+            }
+
+            document.form2.textarea2.value = ret; 
+        }
+        </script>
+    </head>
+    <body>
+        <h2>セミコーダー  cicada coder</h2>
+        セミになろう ~ Be a cicada ~<br>
+        <br>
+        <form name="form1">
+            <textarea name="textarea1" value="1" cols="75" rows=10 >テキストの入力 text entry</textarea><br>
+            <input type="button" value="convert" onclick="convert();"/><br>
+        </form>
+        <br>
+        変換結果 converted<br>
+        <form name="form2">
+            <textarea name="textarea2" value="1" cols="75" rows=30 ></textarea><br>
+        </form>
+    </body>
+</html>
